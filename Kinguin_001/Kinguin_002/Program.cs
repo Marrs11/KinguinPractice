@@ -8,13 +8,8 @@ namespace Kinguin_002
 {
     class Program
     {
-       
-
         static void Main(string[] args)
         {
-
-
-            
             Console.WriteLine("Enter your text: ");
             var s = Console.ReadLine();
             String[] strTwo = new String[s.Length];
@@ -34,20 +29,8 @@ namespace Kinguin_002
                 int i = 0;
                 strTwo[i] = splt;
                 Console.WriteLine(strTwo[i]);
-                //for (int i = 0; i < s.Length; i++)
-                //{
-
-
-                //    Console.WriteLine(splt);
-                //}
-
-                
-
-
             }
             Console.WriteLine(strTwo[0] + "" + strTwo[1] + "" + strTwo[2] + "" + strTwo[3]);
-
-
 
             //for (int i = 0; i < s.Length; i++)
             //{
@@ -65,17 +48,7 @@ namespace Kinguin_002
                 binaryToString += chars[i].ToString();
             }
 
-            
             Console.WriteLine("Convertion from binary values = " + binaryToString);
-
-
-            //string input = chars.ToString();
-
-            //string sub = input.Substring(4, 4);
-            //Console.WriteLine("Substring: {0}", sub);
         }
-        
-
-
     }
 }
