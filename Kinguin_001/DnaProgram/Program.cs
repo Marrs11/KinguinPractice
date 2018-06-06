@@ -12,10 +12,10 @@ namespace DnaProgram
         static void Main(string[] args)
         {
             String s = GetInput();
-            while (InputValidation(s) == false)
-            {
-                InputValidation(s);
-            }
+            //while (InputValidation(s) == false)
+            //{
+            //    InputValidation(s);
+            //}
 
             SplitInput(s);
             ConvertToBinary(s);
@@ -32,43 +32,43 @@ namespace DnaProgram
             return input;
         }
 
-        public static bool InputValidation(String s)
-        {
-            s = Console.ReadLine();
+        //public static bool InputValidation(String s)
+        //{
+        //    s = Console.ReadLine();
 
-            if ((s.Length > 4 || s.Length < 4) == false)
-            {
-                Console.WriteLine("Text must contain only 4 letters!");
+        //    if ((s.Length > 4 || s.Length < 4) == false)
+        //    {
+        //        Console.WriteLine("Text must contain only 4 letters!");
                 
-                return false;
-            }
+        //        return false;
+        //    }
 
-            bool allLetters = Regex.IsMatch(s, @"^[a-zA-Z]$");
-            if (allLetters == false)
-            {
-                Console.WriteLine("Text must only contain letters!");
+        //    bool allLetters = Regex.IsMatch(s, @"^[a-zA-Z]$");
+        //    if (allLetters == false)
+        //    {
+        //        Console.WriteLine("Text must only contain letters!");
                 
-                return false;
-            }
+        //        return false;
+        //    }
 
-            if (char.IsDigit(Convert.ToChar(s)))
-            {
-                Console.Write("Digits Are NotAllowed....\n");
-                Console.Write("Please Enter Correct Name: ");
+        //    if (char.IsDigit(Convert.ToChar(s)))
+        //    {
+        //        Console.Write("Digits Are NotAllowed....\n");
+        //        Console.Write("Please Enter Correct Name: ");
                
-                return false;
+        //        return false;
 
-            }
+        //    }
 
-            return true;
+        //    return true;
 
-        }
+        //}
 
         public static string SplitInput(string s)
         {
             string[] strTwo = new String[s.Length];
             var chars = s.ToCharArray();
-            Console.WriteLine("Original string: {0}", InputValidation(s));
+            Console.WriteLine("Original string: {0}", s);
             Console.WriteLine("\n" + "Character array:");
             for (int ctr = 0; ctr < chars.Length; ctr++)
             {

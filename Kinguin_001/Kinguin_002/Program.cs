@@ -12,32 +12,16 @@ namespace Kinguin_002
     {
         static void Main(string[] args)
         {
+
+            string[,] twoDArray = new string[4, 2];
+           
+
             //TAKE INPUT
 
             Console.WriteLine("Enter your text: ");
             var s = Console.ReadLine();
             Console.WriteLine("\n");
             int counter = 0;
-            //string.IsNullOrEmpty(s)
-            if (s.Length > 4 || s.Length < 4)
-            {
-                Console.WriteLine("Text must contain only 4 letters!");
-                s = Console.ReadLine();
-            }
-
-            //bool allLetters = Regex.IsMatch(s, @"^[a-zA-Z]$");
-            //if (allLetters == false)
-            //{
-            //    Console.WriteLine("Text must only contain letters!");
-            //    s = Console.ReadLine();
-            //}
-
-            //if(char.IsDigit(Convert.ToChar(s)))
-            //{
-            //    Console.Write("Digits Are NotAllowed....\n");
-            //    Console.Write("Please Enter Correct Name: ");
-            //    s = Console.ReadLine(); 
-            //}
 
             string[] strTwo = new String[s.Length];
             
@@ -94,13 +78,31 @@ namespace Kinguin_002
 
             Console.WriteLine("Split binary arrays:" + "\n");
 
+            string firstHalf;
+            string secondHalf;
+
             for (int i = 0; i < strTwo.Length; i++)
             {
-                string value = strTwo[i].Substring(0, 4);
+                firstHalf = strTwo[i].Substring(0, 4);
+                twoDArray[i,0] = firstHalf;
 
-                string value2 = strTwo[i].Substring(4);
-                Console.WriteLine("First half: " + value + "; Second half: " + value2);
+                secondHalf = strTwo[i].Substring(4);
+                twoDArray[i, 1] = secondHalf;
+                Console.WriteLine("First half: " + firstHalf + "; Second half: " + secondHalf + "\n");
+
             }
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.WriteLine("This element [" + i + "] " + " [" + j + "]: " + twoDArray[i, j]);
+                    
+                }
+            }
+
+            
+
         }
     }
 }
