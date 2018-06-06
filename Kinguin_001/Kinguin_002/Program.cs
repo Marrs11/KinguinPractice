@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Kinguin_002
@@ -10,32 +12,70 @@ namespace Kinguin_002
     {
         static void Main(string[] args)
         {
+            //TAKE INPUT
+
             Console.WriteLine("Enter your text: ");
             var s = Console.ReadLine();
-            String[] strTwo = new String[s.Length];
+            Console.WriteLine("\n");
+            int counter = 0;
+            //string.IsNullOrEmpty(s)
+            if (s.Length > 4 || s.Length < 4)
+            {
+                Console.WriteLine("Text must contain only 4 letters!");
+                s = Console.ReadLine();
+            }
 
+            //bool allLetters = Regex.IsMatch(s, @"^[a-zA-Z]$");
+            //if (allLetters == false)
+            //{
+            //    Console.WriteLine("Text must only contain letters!");
+            //    s = Console.ReadLine();
+            //}
+
+            //if(char.IsDigit(Convert.ToChar(s)))
+            //{
+            //    Console.Write("Digits Are NotAllowed....\n");
+            //    Console.Write("Please Enter Correct Name: ");
+            //    s = Console.ReadLine(); 
+            //}
+
+            string[] strTwo = new String[s.Length];
+            
             var chars = s.ToCharArray();
             Console.WriteLine("Original string: {0}", s);
-            Console.WriteLine("Character array:");
+
+            //SPLIT INPUT INTO CHAR ARRAY
+
+            Console.WriteLine("\n" + "Character array:");
             for (int ctr = 0; ctr < chars.Length; ctr++)
             {
                 Console.WriteLine("   {0}: {1}", ctr, chars[ctr]);
             }
 
+            Console.WriteLine("\n");
+
+            //CONVERT CHAR ARRAY INTO BINARY NUMBER
+
             foreach (char c in chars)
             {
-                Console.WriteLine("Binary value of " + c + " is " + Convert.ToString(c, 2).PadLeft(8, '0'));
+                Console.WriteLine("Binary value of " + c + " is " + Convert.ToString(c, 2).PadLeft(8, '0') + "\n");
                 String splt = Convert.ToString(c, 2).PadLeft(8, '0');
-                int i = 0;
-                strTwo[i] = splt;
-                Console.WriteLine(strTwo[i]);
-            }
-            Console.WriteLine(strTwo[0] + "" + strTwo[1] + "" + strTwo[2] + "" + strTwo[3]);
+                if (counter < 4)
+                {
+                    strTwo[counter] = splt;
+                }
 
-            //for (int i = 0; i < s.Length; i++)
-            //{
-            //    Console.WriteLine();
-            //}
+                counter++;
+            }
+
+            for (int i = 0; i < strTwo.Length; i++)
+            {
+                Console.WriteLine("Binary array: " + strTwo[i]);
+            }
+
+            Console.WriteLine("\n");
+
+            //CONVERT BINARY NUMBER BACK TO STRING
 
             string binaryToString = "";
             int len = chars.Length;
@@ -48,7 +88,19 @@ namespace Kinguin_002
                 binaryToString += chars[i].ToString();
             }
 
-            Console.WriteLine("Convertion from binary values = " + binaryToString);
+            Console.WriteLine("Test convertion from binary values = " + binaryToString + "\n");
+            
+            //SPLIT BINARY NUMBERS IN HALF
+
+            Console.WriteLine("Split binary arrays:" + "\n");
+
+            for (int i = 0; i < strTwo.Length; i++)
+            {
+                string value = strTwo[i].Substring(0, 4);
+
+                string value2 = strTwo[i].Substring(4);
+                Console.WriteLine("First half: " + value + "; Second half: " + value2);
+            }
         }
     }
 }
